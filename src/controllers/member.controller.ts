@@ -16,7 +16,7 @@ async  getAll  (req: Request, res: Response)  {
 // Get member by id
   getById: (async (req, res) => {
     try {
-      const { id } = req.params;
+      const id = req.params.id as string;
       const member = await MemberService.getMemberById(id);
       if (!member) return res.status(404).json({ error: 'Member not found' });
       res.json(member);
@@ -28,7 +28,7 @@ async  getAll  (req: Request, res: Response)  {
 // Update member
 async  update (req: Request, res: Response) {
   try {
-    const { id } = req.params;
+    const id = req.params.id as string;
     const updatedData = req.body;
     const updatedMember = await MemberService.updateMember(id, updatedData);
     res.json(updatedMember);
@@ -40,7 +40,7 @@ async  update (req: Request, res: Response) {
 // Delete member
 async  delete (req: Request, res: Response) {
   try {
-    const { id } = req.params;
+    const id = req.params.id as string;
     const result = await MemberService.deleteMember(id);
     res.json(result);
   } catch (error: any) {
@@ -50,7 +50,7 @@ async  delete (req: Request, res: Response) {
 
   getSquad: async (req: Request, res: Response) => {
     try {
-      const { id } = req.params;
+      const id = req.params.id as string;
       const squad = await MemberService.getMemberSquad(id);
       res.json(squad);
     } catch (error: any) {
@@ -60,7 +60,7 @@ async  delete (req: Request, res: Response) {
 
   getSquadMetrics: async (req: Request, res: Response) => {
     try {
-      const { id } = req.params;
+      const id = req.params.id as string;
       const metrics = await MemberService.getSquadMetrics(id);
       res.json(metrics);
     } catch (error: any) {
@@ -102,7 +102,7 @@ getByStatus: async (req: Request, res: Response) => {
 // Approve a member (admin action)
 approve: async (req: Request, res: Response) => {
   try {
-    const { id } = req.params;
+    const id = req.params.id as string;
     const approved = await MemberService.approveMember(id);
     res.json(approved);
   } catch (error: any) {
@@ -113,7 +113,7 @@ approve: async (req: Request, res: Response) => {
 // Reject a member (admin action)
 reject: async (req: Request, res: Response) => {
   try {
-    const { id } = req.params;
+    const id = req.params.id as string;
     const rejected = await MemberService.rejectMember(id);
     res.json(rejected);
   } catch (error: any) {
@@ -123,7 +123,7 @@ reject: async (req: Request, res: Response) => {
 // Mark tutorial as seen
 markTutorialSeen: async (req: Request, res: Response) => {
   try {
-    const { id } = req.params;
+    const id = req.params.id as string;
     const updated = await MemberService.markTutorialAsSeen(id);
     res.json(updated);
   } catch (error: any) {

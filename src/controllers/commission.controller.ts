@@ -13,7 +13,7 @@ export const CommissionController = {
 
   getById: (async (req, res) => {
     try {
-      const { id } = req.params;
+      const id = req.params.id as string;
       const commission = await CommissionService.getCommissionById(id);
       if (!commission) return res.status(404).json({ message: 'Commission not found' });
       res.status(200).json(commission);
@@ -33,7 +33,7 @@ export const CommissionController = {
 
 async update(req: Request, res: Response) {
   try {
-    const { id } = req.params;
+    const id = req.params.id as string;
     const { month, year } = req.body;
 
     const commission = await CommissionService.updateCommission(id, req.body);
@@ -52,7 +52,7 @@ async update(req: Request, res: Response) {
 
   async delete(req: Request, res: Response) {
     try {
-      const { id } = req.params;
+      const id = req.params.id as string;
       await CommissionService.deleteCommission(id);
       res.status(204).send();
     } catch (error) {

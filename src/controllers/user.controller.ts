@@ -11,7 +11,7 @@ export const getAllUsersController = async (_req: Request, res: Response) => {
 };
 
 export const updateUserController = async (req: Request, res: Response) => {
-  const { id } = req.params;
+  const id = req.params.id as string;
   const updatedData = req.body;
   
 
@@ -24,7 +24,7 @@ export const updateUserController = async (req: Request, res: Response) => {
 };
 
 export const deleteUserController = async (req: Request, res: Response) => {
-  const { id } = req.params;
+  const id = req.params.id as string;
 
   try {
     const result = await deleteUser(id);
