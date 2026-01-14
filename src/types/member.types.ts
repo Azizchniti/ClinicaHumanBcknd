@@ -1,0 +1,15 @@
+export interface Member {
+  id: string;
+  cpf: string;
+  phone: string;
+  grade: string;
+  total_sales: number;
+  total_contacts: number;
+  total_commission: number;
+  first_name: string;
+  last_name: string;
+  upline_id: string | null; 
+  profile_picture:string;// Assuming upline_id can be nullable
+  has_seen_tutorial: boolean; 
+  // Add any other fields that might exist in your table if necessary
+}
