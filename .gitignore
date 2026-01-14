@@ -10,7 +10,7 @@ build/
 *.log.*
 
 # Dependency directories (e.g., npm or yarn)
-package-lock.json
+#package-lock.json
 yarn.lock
 
 # Environment variables file (optional)
